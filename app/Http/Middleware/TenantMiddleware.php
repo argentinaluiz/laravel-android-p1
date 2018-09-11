@@ -16,7 +16,7 @@ class TenantMiddleware
     public function handle($request, Closure $next)
     {
         $user = \JWTAuth::parseToken()->toUser();
-        \TenantManager::addTenant($user);
+        \Landlord::addTenant($user);
         return $next($request);
     }
 }
